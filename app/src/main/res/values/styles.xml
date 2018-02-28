@@ -1,0 +1,166 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--Splash Screen created with the help of
+    https://www.bignerdranch.com/blog/splash-screens-the-right-way/-->
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash</item>
+    </style>
+
+    <!--Main Layout-->
+    <style name="MainLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">@dimen/marginIntro</item>
+        <item name="android:layout_marginRight">@dimen/marginIntro</item>
+        <item name="android:textSize">@dimen/textSizeIntro</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <!--Intro-->
+    <style name="Intro">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawableTop">@drawable/ic_launcher_background</item>
+        <item name="android:drawablePadding">@dimen/paddingIntro</item>
+        <item name="android:layout_marginLeft">@dimen/marginIntro</item>
+        <item name="android:layout_marginRight">@dimen/marginIntro</item>
+        <item name="android:layout_marginBottom">@dimen/marginBottomGeneral</item>
+        <item name="android:textSize">@dimen/textSizeIntro</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <style name="IntroLinearLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_margin">@dimen/marginIntro</item>
+    </style>
+
+    <!--Submit Button-->
+    <style name="SubmitButton">
+        <item name="android:background">@drawable/submit_button_border</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/submitAnswer</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">@dimen/textSizeQuestion</item>
+    </style>
+
+    <!--Question Text-->
+    <style name="QuestionText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/heightQuestion</item>
+        <item name="android:background">@drawable/question_border</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/textSizeQuestion</item>
+        <item name="android:lines">2</item>
+        <item name="android:layout_marginBottom">@dimen/marginBottomGeneral</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <!--Pick One Button-->
+    <style name="ButtonLinearLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/heightBox</item>
+        <item name="android:layout_marginBottom">@dimen/marginBottomGeneral</item>
+    </style>
+
+    <style name="ButtonChoice">
+        <item name="android:background">@drawable/button_choice_border</item>
+        <item name="android:layout_width">@dimen/widthButton</item>
+        <item name="android:layout_height">@dimen/heightBox</item>
+        <item name="android:layout_marginBottom">@dimen/marginBottomGeneral</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ButtonText">
+        <item name="android:background">@drawable/button_text_border</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/heightBox</item>
+        <item name="android:layout_marginBottom">@dimen/marginBottomGeneral</item>
+        <item name="android:lines">1</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!--Radio Button-->
+    <style name="RadioLinearLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/marginBottomGeneral</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="RadioText">
+        <item name="android:background">@drawable/button_text_border</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/heightBox</item>
+        <item name="android:gravity">start|center</item>
+        <item name="android:lines">1</item>
+        <item name="android:layout_marginBottom">@dimen/marginBottomGeneral</item>
+    </style>
+
+    <!--CheckBox Button-->
+    <style name="CheckLinearLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/marginBottomGeneral</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="CheckText">
+        <item name="android:background">@drawable/button_text_border</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">start|center</item>
+        <item name="android:layout_height">@dimen/heightBox</item>
+        <item name="android:lines">1</item>
+        <item name="android:layout_marginBottom">@dimen/marginBottomGeneral</item>
+    </style>
+
+    <!--EditText Button-->
+    <style name="EditTextLinearLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/marginBottomGeneral</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="EditTextQuestion">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/heightQuestion</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">italic|bold</item>
+        <item name="android:layout_margin">@dimen/marginEditText</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">@dimen/textSizeQuestion</item>
+    </style>
+
+    <style name="EditTextInput">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/heightEditText</item>
+        <item name="android:lines">1</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">@dimen/marginEditText</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">@dimen/textSizeEditText</item>
+    </style>
+
+    <!--Image-->
+    <style name="Image">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">@dimen/marginIntro</item>
+    </style>
+
+
+</resources>

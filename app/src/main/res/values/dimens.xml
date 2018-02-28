@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--General Use-->
+    <dimen name="nullSize">0dp</dimen>
+    <dimen name="heightBox">40dp</dimen>
+    <dimen name="marginBottomGeneral">4dp</dimen>
+
+    <!--Intro-->
+    <dimen name="paddingIntro">16dp</dimen>
+    <dimen name="textSizeIntro">18sp</dimen>
+    <dimen name="marginIntro">16dp</dimen>
+
+    <!--Submit Button-->
+    <dimen name="textSizeSubmit">18sp</dimen>
+
+    <!--Question-->
+    <dimen name="textSizeQuestion">16sp</dimen>
+    <dimen name="heightQuestion">60dp</dimen>
+    <dimen name="marginQuestion">16dp</dimen>
+
+    <!--Button Question-->
+    <dimen name="widthButton">48dp</dimen>
+
+    <!--Radio Question-->
+    <dimen name="marginRadio">16dp</dimen>
+
+    <!--Check Question-->
+    <dimen name="marginCheckBox">16dp</dimen>
+
+    <!--Edit Text Question-->
+    <dimen name="heightEditText">60dp</dimen>
+    <dimen name="marginEditText">16dp</dimen>
+    <dimen name="textSizeEditText">24sp</dimen>
+
+</resources>

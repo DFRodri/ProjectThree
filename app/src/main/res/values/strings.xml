@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">ProjectThree</string>
+
+    <!--Intro-->
+    <string name="intro">Welcome to SOME RANDOM ANDROID QUIZ!\nAnswer the questions to unlock pieces of the puzzle!</string>
+    <string name="agree">Okay!</string>
+
+    <!--Submit Answer-->
+    <string name="submitAnswer">Submit Answer</string>
+
+    <!--Generic Use-->
+    <string name="a">A.</string>
+    <string name="b">B.</string>
+    <string name="c">C.</string>
+    <string name="d">D.</string>
+    <string name="missingAnswer">Nothing is always something&#8230; but where is the answer?</string>
+    <string name="correct">CORRECT!\nAnother block is now unlocked!</string>
+    <string name="wrong">WRONG!</string>
+
+    <!--Questions setup:
+    78 chars->question
+    31 chars->answer-->
+
+    <string name="questionOne">Which ones is the capital of Portugal?</string>
+    <string name="answer1_1">Lisbon</string>
+    <string name="answer1_2">Lisbonbera</string>
+    <string name="answer1_3">Spain</string>
+    <string name="answer1_4">Madrid</string>
+
+    <string name="questionTwo">Which ones is the capital of Rwanda?</string>
+    <string name="answer2_1">Rwanda</string>
+    <string name="answer2_2">Xiptop</string>
+    <string name="answer2_3">Swaziman</string>
+    <string name="answer2_4">Quebec</string>
+
+    <string name="questionThree">Which ones is the real name of the capital of China?</string>
+    <string name="answer3_1">Beijing</string>
+    <string name="answer3_2">Xangrila</string>
+    <string name="answer3_3">Pequim</string>
+    <string name="answer3_4">Hong Kong</string>
+    <string name="answer3_5">Bangboq</string>
+
+
+</resources>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    tools:context="com.example.android.projectthree.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/intro"
+        style="@style/IntroLinearLayout"
+        android:visibility="gone">
+
+        <TextView
+            style="@style/Intro"
+            android:layout_centerVertical="true"
+            android:text="@string/intro" />
+
+        <Button
+            style="@style/SubmitButton"
+            android:layout_alignParentBottom="true"
+            android:onClick="agree"
+            android:text="@string/agree" />
+
+    </RelativeLayout><!--Intro-->
+
+    <LinearLayout
+        android:id="@+id/button"
+        style="@style/MainLayout"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            style="@style/Image"
+            android:background="@drawable/ic_launcher_foreground"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/questionButton"
+            style="@style/QuestionText"
+            android:text="" />
+
+        <LinearLayout style="@style/ButtonLinearLayout">
+
+            <TextView
+                style="@style/ButtonChoice"
+                android:text="@string/a" />
+
+            <Button
+                android:id="@+id/buttonA"
+                style="@style/ButtonText"
+                android:onClick="buttonA"
+                android:text="" />
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/ButtonLinearLayout">
+
+            <TextView
+                style="@style/ButtonChoice"
+                android:text="@string/b" />
+
+            <Button
+                android:id="@+id/buttonB"
+                style="@style/ButtonText"
+                android:onClick="buttonB"
+                android:text="" />
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/ButtonLinearLayout">
+
+            <TextView
+                style="@style/ButtonChoice"
+                android:text="@string/c" />
+
+            <Button
+                android:id="@+id/buttonC"
+                style="@style/ButtonText"
+                android:onClick="buttonC"
+                android:text="" />
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/ButtonLinearLayout">
+
+            <TextView
+                style="@style/ButtonChoice"
+                android:text="@string/d" />
+
+            <Button
+                android:id="@+id/buttonD"
+                style="@style/ButtonText"
+                android:onClick="buttonD"
+                android:text="" />
+
+        </LinearLayout>
+
+    </LinearLayout><!--Button-->
+
+    <LinearLayout
+        android:id="@+id/checkbox"
+        style="@style/MainLayout"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            style="@style/Image"
+            android:background="@drawable/ic_launcher_foreground"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/questionCheck"
+            style="@style/QuestionText" />
+
+        <CheckBox
+            android:id="@+id/checkA"
+            style="@style/CheckText"
+            android:onClick="checkAnswer"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/checkB"
+            style="@style/CheckText"
+            android:onClick="checkAnswer"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/checkC"
+            style="@style/CheckText"
+            android:onClick="checkAnswer"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/checkD"
+            style="@style/CheckText"
+            android:onClick="checkAnswer"
+            android:text="" />
+
+        <Button
+            style="@style/SubmitButton"
+            android:onClick="checkSolution" />
+
+    </LinearLayout><!--CheckBox-->
+
+    <LinearLayout
+        android:id="@+id/radio"
+        style="@style/MainLayout"
+        android:orientation="vertical">
+
+        <ImageView
+            style="@style/Image"
+            android:background="@drawable/ic_launcher_foreground"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/questionRadio"
+            style="@style/QuestionText" />
+
+        <RadioGroup style="@style/RadioLinearLayout">
+            <RadioButton
+                android:id="@+id/radioA"
+                style="@style/RadioText"
+                android:onClick="radioAnswer" />
+
+            <RadioButton
+                android:id="@+id/radioB"
+                style="@style/RadioText"
+                android:onClick="radioAnswer" />
+
+            <RadioButton
+                android:id="@+id/radioC"
+                style="@style/RadioText"
+                android:onClick="radioAnswer" />
+
+            <RadioButton
+                android:id="@+id/radioD"
+                style="@style/RadioText"
+                android:onClick="radioAnswer" />
+
+            <RadioButton
+                android:id="@+id/radioE"
+                style="@style/RadioText"
+                android:onClick="radioAnswer" />
+        </RadioGroup>
+
+        <Button
+            style="@style/SubmitButton"
+            android:onClick="radioSolution" />
+
+    </LinearLayout><!--CheckBox-->
+
+</LinearLayout>
