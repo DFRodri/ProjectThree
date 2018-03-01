@@ -232,7 +232,7 @@
             tools:ignore="ContentDescription" />
 
         <Button
-            style="@style/SubmitButton"
+            style="@style/RestartButton"
             android:onClick="restart" />
 
     </LinearLayout><!--Restart-->

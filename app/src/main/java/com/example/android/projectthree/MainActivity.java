@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     Boolean[] radioOption = {false, false, false, false, false};
 
     //holds the answers given by the player (first one, answers[0], is ignored to make it easier to work with)
-    Boolean[] answers = new Boolean[8];
+    Boolean[] answers = {false, false, false, false, false, false, false, false, false};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,6 +152,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (score[1] == 9) {
+            LinearLayout editQuestion = this.findViewById(R.id.restart);
+            editQuestion.setVisibility(View.VISIBLE);
+
             if (answers[1]) {
                 score[0]++;
             }
@@ -176,7 +179,6 @@ public class MainActivity extends AppCompatActivity {
             if (answers[8]) {
                 score[0]++;
             }
-            score[0] *= 12.5;
 
             Toast.makeText(this, getString(R.string.finalScore) + score[0] + getString(R.string.maxScore), Toast.LENGTH_LONG).show();
         }
@@ -303,6 +305,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         score[1]++;
+
+        /**CheckBox checkA = this.findViewById(R.id.checkA);
+        checkA.toggle();**/
 
         LinearLayout checkQuestion = this.findViewById(R.id.checkbox);
         checkQuestion.setVisibility(View.GONE);
