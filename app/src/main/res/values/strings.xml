@@ -14,31 +14,61 @@
     <string name="c">C.</string>
     <string name="d">D.</string>
     <string name="missingAnswer">Nothing is always something&#8230; but where is the answer?</string>
-    <string name="correct">CORRECT!\nAnother block is now unlocked!</string>
-    <string name="wrong">WRONG!</string>
+
+    <!--EditText Question-->
+    <string name="hint">Give me an answer!</string>
 
     <!--Questions setup:
-    78 chars->question
-    31 chars->answer-->
+    max; 78 chars->question
+    max: 31 chars->answer-->
 
-    <string name="questionOne">Which ones is the capital of Portugal?</string>
+    <string name="questionOne">Which one is the capital of Portugal?</string>
     <string name="answer1_1">Lisbon</string>
     <string name="answer1_2">Lisbonbera</string>
     <string name="answer1_3">Spain</string>
     <string name="answer1_4">Madrid</string>
 
-    <string name="questionTwo">Which ones is the capital of Rwanda?</string>
+    <string name="questionTwo">Which one is the capital of Rwanda?</string>
     <string name="answer2_1">Rwanda</string>
     <string name="answer2_2">Xiptop</string>
     <string name="answer2_3">Swaziman</string>
     <string name="answer2_4">Quebec</string>
 
-    <string name="questionThree">Which ones is the real name of the capital of China?</string>
+    <string name="questionThree">Which one is the real name of the capital of China?</string>
     <string name="answer3_1">Beijing</string>
     <string name="answer3_2">Xangrila</string>
     <string name="answer3_3">Pequim</string>
     <string name="answer3_4">Hong Kong</string>
     <string name="answer3_5">Bangboq</string>
 
+    <string name="questionFour">What is the capital of Australia?</string>
+    <string name="answer4">Camberra</string>
+
+    <string name="questionFive">Which of this cities were or are capitals?</string>
+    <string name="answer5_1">Kyoto</string>
+    <string name="answer5_2">Lima</string>
+    <string name="answer5_3">Banana</string>
+    <string name="answer5_4">No Fing</string>
+
+    <string name="questionSix">Only one of this cities is a capital.</string>
+    <string name="answer6_1">Bucresti</string>
+    <string name="answer6_2">Budpasti</string>
+    <string name="answer6_3">Porto</string>
+    <string name="answer6_4">São Paulo</string>
+    <string name="answer6_5">Vienna</string>
+
+    <string name="questionSeven">Which one is the capital of France?</string>
+    <string name="answer7_1">Rome</string>
+    <string name="answer7_2">Paris</string>
+    <string name="answer7_3">Beja</string>
+    <string name="answer7_4">France City</string>
+
+    <string name="questionEight">What is the capital of Italy?</string>
+    <string name="answer8">Rome</string>
+
+    <!--Restart-->
+    <string name="restartButton">Restart</string>
+    <string name="finalScore">You achieved</string>
+    <string name="maxScore">/100</string>
 
 </resources>

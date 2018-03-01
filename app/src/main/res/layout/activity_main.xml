@@ -10,8 +10,7 @@
 
     <RelativeLayout
         android:id="@+id/intro"
-        style="@style/IntroLinearLayout"
-        android:visibility="gone">
+        style="@style/IntroLinearLayout">
 
         <TextView
             style="@style/Intro"
@@ -148,7 +147,8 @@
     <LinearLayout
         android:id="@+id/radio"
         style="@style/MainLayout"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <ImageView
             style="@style/Image"
@@ -160,6 +160,7 @@
             style="@style/QuestionText" />
 
         <RadioGroup style="@style/RadioLinearLayout">
+
             <RadioButton
                 android:id="@+id/radioA"
                 style="@style/RadioText"
@@ -190,6 +191,50 @@
             style="@style/SubmitButton"
             android:onClick="radioSolution" />
 
-    </LinearLayout><!--CheckBox-->
+    </LinearLayout><!--Radio-->
+
+    <LinearLayout
+        android:id="@+id/editText"
+        style="@style/MainLayout"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            style="@style/Image"
+            android:background="@drawable/ic_launcher_foreground"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/questionEdit"
+            style="@style/QuestionText" />
+
+        <EditText
+            android:id="@+id/editAnswer"
+            style="@style/EditTextInput"
+            android:hint="@string/hint"
+            android:inputType="textAutoComplete" />
+
+        <Button
+            style="@style/SubmitButton"
+            android:onClick="editSolution" />
+
+    </LinearLayout><!--EditText-->
+
+    <LinearLayout
+        android:id="@+id/restart"
+        style="@style/MainLayout"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            style="@style/Image"
+            android:background="@drawable/ic_launcher_foreground"
+            tools:ignore="ContentDescription" />
+
+        <Button
+            style="@style/SubmitButton"
+            android:onClick="restart" />
+
+    </LinearLayout><!--Restart-->
 
 </LinearLayout>
