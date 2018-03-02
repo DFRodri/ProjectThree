@@ -29,10 +29,12 @@
     <style name="Intro">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:drawableTop">@drawable/ic_launcher_background</item>
+        <item name="android:drawableTop">@drawable/logo</item>
         <item name="android:drawablePadding">@dimen/paddingIntro</item>
         <item name="android:layout_marginLeft">@dimen/marginIntro</item>
         <item name="android:layout_marginRight">@dimen/marginIntro</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:textAlignment">center</item>
         <item name="android:layout_marginBottom">@dimen/marginBottomGeneral</item>
         <item name="android:textSize">@dimen/textSizeIntro</item>
         <item name="android:textColor">@color/textColor</item>

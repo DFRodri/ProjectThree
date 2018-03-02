@@ -2,7 +2,7 @@
     <string name="app_name">ProjectThree</string>
 
     <!--Intro-->
-    <string name="intro">Welcome to SOME RANDOM ANDROID QUIZ!\nAnswer the questions and be a winner!</string>
+    <string name="intro">Welcome to CAPITAL QUIZ!\nAnswer the questions and be a winner!</string>
     <string name="agree">Okay!</string>
 
     <!--Submit Answer-->
@@ -69,6 +69,9 @@
     <!--Restart-->
     <string name="restartButton">Restart</string>
     <string name="finalScore">You achieved</string>
+    <string name="decent">. Not bad.</string>
+    <string name="terribleScore">Damn it, you\'re terrible. You achieved a big damn 0/8!!</string>
+    <string name="recordScore">IT\'S A NEW RECORD! 8/8!\nCongratulations!</string>
     <string name="maxScore">/8</string>
 
 </resources>

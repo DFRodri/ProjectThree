@@ -12,16 +12,18 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Arrays;
+
 public class MainActivity extends AppCompatActivity {
 
-    //holds the score, question number
+    //holds the score, question number (questions starts on 1 to be easier to read)
     int[] score = {0, 1};
 
     //holds the answers given in the checkbox
-    Boolean[] checkBoxOne = new Boolean[4];
+    Boolean[] checkBoxOptions = {false, false, false, false};
 
     //holds the answer given in the radio (forces a change to true on the selected)
-    Boolean[] radioOption = {false, false, false, false, false};
+    int radioOption;
 
     //holds the answers given by the player (first one, answers[0], is ignored to make it easier to work with)
     Boolean[] answers = {false, false, false, false, false, false, false, false, false};
@@ -180,7 +182,14 @@ public class MainActivity extends AppCompatActivity {
                 score[0]++;
             }
 
-            Toast.makeText(this, getString(R.string.finalScore) + score[0] + getString(R.string.maxScore), Toast.LENGTH_LONG).show();
+            if (score[0] == 0) {
+                Toast.makeText(this, getString(R.string.terribleScore), Toast.LENGTH_LONG).show();
+            } else if (score[0] > 0 && score[0] < 8) {
+                String congratulations = getString(R.string.finalScore) + " " + score[0] + getString(R.string.maxScore) + getString(R.string.decent);
+                Toast.makeText(this, congratulations, Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, getString(R.string.recordScore), Toast.LENGTH_LONG).show();
+            }
         }
     }
 
@@ -191,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
             answers[1] = true;
         }
         if (score[1] == 7) {
-            answers[1] = false;
+            answers[7] = false;
         }
 
         solveQuestion();
@@ -203,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
             answers[1] = false;
         }
         if (score[1] == 7) {
-            answers[1] = true;
+            answers[7] = true;
         }
 
         solveQuestion();
@@ -215,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
             answers[1] = false;
         }
         if (score[1] == 7) {
-            answers[1] = false;
+            answers[7] = false;
         }
 
         solveQuestion();
@@ -227,7 +236,7 @@ public class MainActivity extends AppCompatActivity {
             answers[1] = false;
         }
         if (score[1] == 7) {
-            answers[1] = false;
+            answers[7] = false;
         }
 
         solveQuestion();
@@ -253,30 +262,30 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.checkA:
                 if (checked) {
-                    checkBoxOne[0] = true;
-                } else if (!checkBoxOne[0]) {
-                    checkBoxOne[0] = false;
+                    checkBoxOptions[0] = true;
+                } else if (!checkBoxOptions[0]) {
+                    checkBoxOptions[0] = false;
                 }
                 break;
             case R.id.checkB:
                 if (checked) {
-                    checkBoxOne[1] = true;
-                } else if (!checkBoxOne[1]) {
-                    checkBoxOne[1] = false;
+                    checkBoxOptions[1] = true;
+                } else if (!checkBoxOptions[1]) {
+                    checkBoxOptions[1] = false;
                 }
                 break;
             case R.id.checkC:
                 if (checked) {
-                    checkBoxOne[2] = true;
-                } else if (!checkBoxOne[2]) {
-                    checkBoxOne[2] = false;
+                    checkBoxOptions[2] = true;
+                } else if (!checkBoxOptions[2]) {
+                    checkBoxOptions[2] = false;
                 }
                 break;
             case R.id.checkD:
                 if (checked) {
-                    checkBoxOne[3] = true;
-                } else if (!checkBoxOne[3]) {
-                    checkBoxOne[3] = false;
+                    checkBoxOptions[3] = true;
+                } else if (!checkBoxOptions[3]) {
+                    checkBoxOptions[3] = false;
                 }
                 break;
         }
@@ -287,8 +296,8 @@ public class MainActivity extends AppCompatActivity {
     public void checkSolution(View view) {
 
         if (score[1] == 2) {
-            Boolean[] solutionTwo = {false, true, false, false};
-            if (checkBoxOne == solutionTwo) {
+            Boolean[] solutionTwo = {true, false, false, false};
+            if (Arrays.deepEquals(checkBoxOptions, solutionTwo)) {
                 answers[2] = true;
             } else {
                 answers[2] = false;
@@ -297,7 +306,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (score[1] == 5) {
             Boolean[] solutionFive = {true, true, false, false};
-            if (checkBoxOne == solutionFive) {
+            if (Arrays.deepEquals(checkBoxOptions, solutionFive)) {
                 answers[5] = true;
             } else {
                 answers[5] = false;
@@ -306,8 +315,14 @@ public class MainActivity extends AppCompatActivity {
 
         score[1]++;
 
-        /**CheckBox checkA = this.findViewById(R.id.checkA);
-        checkA.toggle();**/
+        CheckBox checkA = this.findViewById(R.id.checkA);
+        CheckBox checkB = this.findViewById(R.id.checkB);
+        CheckBox checkC = this.findViewById(R.id.checkC);
+        CheckBox checkD = this.findViewById(R.id.checkD);
+        checkA.setChecked(false);
+        checkB.setChecked(false);
+        checkC.setChecked(false);
+        checkD.setChecked(false);
 
         LinearLayout checkQuestion = this.findViewById(R.id.checkbox);
         checkQuestion.setVisibility(View.GONE);
@@ -315,7 +330,9 @@ public class MainActivity extends AppCompatActivity {
         question();
     }
 
-    /**Falta tratar do resto das descrições e testar a app para ver se tudo funciona bem**/
+    /**
+     * Falta tratar do resto das descrições
+     **/
     public void radioAnswer(View view) {
 
         boolean checked = ((RadioButton) view).isChecked();
@@ -323,37 +340,27 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.radioA:
                 if (checked) {
-                    radioOption[0] = true;
-                } else if (!radioOption[0]) {
-                    radioOption[0] = false;
+                    radioOption = 1;
                 }
                 break;
             case R.id.radioB:
                 if (checked) {
-                    radioOption[1] = true;
-                } else if (!radioOption[1]) {
-                    radioOption[1] = false;
+                    radioOption = 2;
                 }
                 break;
             case R.id.radioC:
                 if (checked) {
-                    radioOption[2] = true;
-                } else if (!radioOption[2]) {
-                    radioOption[2] = false;
+                    radioOption = 3;
                 }
                 break;
             case R.id.radioD:
                 if (checked) {
-                    radioOption[3] = true;
-                } else if (!radioOption[3]) {
-                    radioOption[3] = false;
+                    radioOption = 4;
                 }
                 break;
             case R.id.radioE:
                 if (checked) {
-                    radioOption[4] = true;
-                } else if (!radioOption[4]) {
-                    radioOption[4] = false;
+                    radioOption = 5;
                 }
                 break;
         }
@@ -363,8 +370,7 @@ public class MainActivity extends AppCompatActivity {
     public void radioSolution(View view) {
 
         if (score[1] == 3) {
-            Boolean[] solutionThree = {true, false, false, false, false};
-            if (radioOption == solutionThree) {
+            if (radioOption == 1) {
                 answers[3] = true;
             } else {
                 answers[3] = false;
@@ -372,8 +378,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (score[1] == 6) {
-            Boolean[] solutionSix = {false, false, false, false, true};
-            if (radioOption == solutionSix) {
+            if (radioOption == 5) {
                 answers[6] = true;
             } else {
                 answers[6] = false;
@@ -381,6 +386,18 @@ public class MainActivity extends AppCompatActivity {
         }
 
         score[1]++;
+
+        RadioButton radioA = this.findViewById(R.id.radioA);
+        RadioButton radioB = this.findViewById(R.id.radioB);
+        RadioButton radioC = this.findViewById(R.id.radioC);
+        RadioButton radioD = this.findViewById(R.id.radioD);
+        RadioButton radioE = this.findViewById(R.id.radioE);
+
+        radioA.setChecked(false);
+        radioB.setChecked(false);
+        radioC.setChecked(false);
+        radioD.setChecked(false);
+        radioE.setChecked(false);
 
         LinearLayout radioQuestion = this.findViewById(R.id.radio);
         radioQuestion.setVisibility(View.GONE);
@@ -391,12 +408,9 @@ public class MainActivity extends AppCompatActivity {
     public void editSolution(View view) {
 
         EditText answerGiven = this.findViewById(R.id.editAnswer);
-        answerGiven.getText();
-
-        String solutionEdit = String.valueOf(answerGiven);
+        String solutionEdit = answerGiven.getText().toString();
 
         if (score[1] == 4) {
-
             if (solutionEdit.equals(getString(R.string.answer4))) {
                 answers[4] = true;
             } else {
@@ -404,7 +418,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         if (score[1] == 8) {
-
             if (solutionEdit.equals(getString(R.string.answer8))) {
                 answers[8] = true;
             } else {
@@ -413,6 +426,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         score[1]++;
+
+        answerGiven.setText("");
 
         LinearLayout editQuestion = this.findViewById(R.id.editText);
         editQuestion.setVisibility(View.GONE);

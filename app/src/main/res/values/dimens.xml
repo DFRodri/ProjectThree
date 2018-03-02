@@ -2,7 +2,7 @@
 <resources>
     <!--General Use-->
     <dimen name="nullSize">0dp</dimen>
-    <dimen name="heightBox">40dp</dimen>
+    <dimen name="heightBox">50dp</dimen>
     <dimen name="marginBottomGeneral">4dp</dimen>
 
     <!--Intro-->
