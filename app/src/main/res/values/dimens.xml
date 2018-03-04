@@ -2,8 +2,9 @@
 <resources>
     <!--General Use-->
     <dimen name="nullSize">0dp</dimen>
-    <dimen name="heightBox">50dp</dimen>
-    <dimen name="marginBottomGeneral">4dp</dimen>
+    <dimen name="heightBox">40dp</dimen>
+    <dimen name="marginBottomGeneral">16dp</dimen>
+    <dimen name="marginTopGeneralLand">16dp</dimen>
 
     <!--Intro-->
     <dimen name="paddingIntro">16dp</dimen>
@@ -17,6 +18,7 @@
     <dimen name="textSizeQuestion">16sp</dimen>
     <dimen name="heightQuestion">60dp</dimen>
     <dimen name="marginQuestion">16dp</dimen>
+    <dimen name="drawablePaddingQuestionLand">16dp</dimen>
 
     <!--Button Question-->
     <dimen name="widthButton">48dp</dimen>

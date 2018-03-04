@@ -29,14 +29,9 @@
         android:orientation="vertical"
         android:visibility="gone">
 
-        <ImageView
-            style="@style/Image"
-            android:background="@drawable/ic_launcher_foreground"
-            tools:ignore="ContentDescription" />
-
         <TextView
             android:id="@+id/questionButton"
-            style="@style/QuestionText"
+            style="@style/QuestionTextLand"
             android:text="" />
 
         <LinearLayout style="@style/ButtonLinearLayout">
@@ -103,14 +98,9 @@
         android:orientation="vertical"
         android:visibility="gone">
 
-        <ImageView
-            style="@style/Image"
-            android:background="@drawable/ic_launcher_foreground"
-            tools:ignore="ContentDescription" />
-
         <TextView
             android:id="@+id/questionCheck"
-            style="@style/QuestionText" />
+            style="@style/QuestionTextLand" />
 
         <CheckBox
             android:id="@+id/checkA"
@@ -148,30 +138,28 @@
         android:orientation="vertical"
         android:visibility="gone">
 
-        <ImageView
-            style="@style/Image"
-            android:background="@drawable/ic_launcher_foreground"
-            tools:ignore="ContentDescription" />
-
         <TextView
             android:id="@+id/questionRadio"
-            style="@style/QuestionText" />
+            style="@style/QuestionTextLand" />
 
         <RadioGroup style="@style/RadioLinearLayout">
 
             <RadioButton
                 android:id="@+id/radioA"
                 style="@style/RadioText"
+                android:layout_marginBottom="@dimen/marginBottomGeneral"
                 android:onClick="radioAnswer" />
 
             <RadioButton
                 android:id="@+id/radioB"
                 style="@style/RadioText"
+                android:layout_marginBottom="@dimen/marginBottomGeneral"
                 android:onClick="radioAnswer" />
 
             <RadioButton
                 android:id="@+id/radioC"
                 style="@style/RadioText"
+                android:layout_marginBottom="@dimen/marginBottomGeneral"
                 android:onClick="radioAnswer" />
 
             <RadioButton
@@ -193,14 +181,9 @@
         android:orientation="vertical"
         android:visibility="gone">
 
-        <ImageView
-            style="@style/Image"
-            android:background="@drawable/ic_launcher_foreground"
-            tools:ignore="ContentDescription" />
-
         <TextView
             android:id="@+id/questionEdit"
-            style="@style/QuestionText" />
+            style="@style/QuestionTextLand" />
 
         <EditText
             android:id="@+id/editAnswer"

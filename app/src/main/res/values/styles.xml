@@ -34,7 +34,22 @@
         <item name="android:layout_marginLeft">@dimen/marginIntro</item>
         <item name="android:layout_marginRight">@dimen/marginIntro</item>
         <item name="android:layout_centerInParent">true</item>
-        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginBottom">@dimen/marginBottomGeneral</item>
+        <item name="android:textSize">@dimen/textSizeIntro</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <style name="IntroLand">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawableTop">@drawable/logo</item>
+        <item name="android:drawablePadding">@dimen/paddingIntro</item>
+        <item name="android:layout_marginLeft">@dimen/marginIntro</item>
+        <item name="android:layout_marginRight">@dimen/marginIntro</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginTop">@dimen/marginBottomGeneral</item>
         <item name="android:layout_marginBottom">@dimen/marginBottomGeneral</item>
         <item name="android:textSize">@dimen/textSizeIntro</item>
         <item name="android:textColor">@color/textColor</item>
@@ -78,6 +93,19 @@
         <item name="android:textColor">@color/textColor</item>
     </style>
 
+    <style name="QuestionTextLand">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/heightQuestion</item>
+        <item name="android:background">@drawable/question_border</item>
+        <item name="android:drawableLeft">@drawable/ic_launcher_foreground</item>
+        <item name="android:drawablePadding">@dimen/drawablePaddingQuestionLand</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/textSizeQuestion</item>
+        <item name="android:lines">2</item>
+        <item name="android:layout_marginBottom">@dimen/marginBottomGeneral</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
     <!--Pick One Button-->
     <style name="ButtonLinearLayout">
         <item name="android:layout_width">match_parent</item>
@@ -112,13 +140,18 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="RadioLinearLayoutLand">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+    </style>
+
     <style name="RadioText">
         <item name="android:background">@drawable/button_text_border</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/heightBox</item>
         <item name="android:gravity">start|center</item>
         <item name="android:lines">1</item>
-        <item name="android:layout_marginBottom">@dimen/marginBottomGeneral</item>
     </style>
 
     <!--CheckBox Button-->

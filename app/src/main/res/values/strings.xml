@@ -37,9 +37,8 @@
     <string name="questionThree">Which one is the real name of the capital of China?</string>
     <string name="answer3_1">Beijing</string>
     <string name="answer3_2">Xangrila</string>
-    <string name="answer3_3">Pequim</string>
-    <string name="answer3_4">Hong Kong</string>
-    <string name="answer3_5">Bangboq</string>
+    <string name="answer3_3">Hong Kong</string>
+    <string name="answer3_4">Bangboq</string>
 
     <string name="questionFour">What is the capital of Australia?</string>
     <string name="answer4">Camberra</string>
@@ -53,9 +52,8 @@
     <string name="questionSix">Only one of this cities is a capital.</string>
     <string name="answer6_1">Bucresti</string>
     <string name="answer6_2">Budpasti</string>
-    <string name="answer6_3">Porto</string>
-    <string name="answer6_4">São Paulo</string>
-    <string name="answer6_5">Vienna</string>
+    <string name="answer6_3">São Paulo</string>
+    <string name="answer6_4">Vienna</string>
 
     <string name="questionSeven">Which one is the capital of France?</string>
     <string name="answer7_1">Rome</string>

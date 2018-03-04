@@ -12,36 +12,193 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Arrays;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
-    //holds the score, question number (questions starts on 1 to be easier to read)
+    //variables related to views
+    //Makes use of butterKnife - http://jakewharton.github.io/butterknife/
+    @BindView(R.id.intro)
+    RelativeLayout intro;
+    @BindView(R.id.button)
+    LinearLayout buttonQuestion;
+    @BindView(R.id.questionButton)
+    TextView textButton;
+    @BindView(R.id.buttonA)
+    Button buttonA;
+    @BindView(R.id.buttonB)
+    Button buttonB;
+    @BindView(R.id.buttonC)
+    Button buttonC;
+    @BindView(R.id.buttonD)
+    Button buttonD;
+    @BindView(R.id.checkbox)
+    LinearLayout checkQuestion;
+    @BindView(R.id.questionCheck)
+    TextView textCheck;
+    @BindView(R.id.checkA)
+    CheckBox checkBoxA;
+    @BindView(R.id.checkB)
+    CheckBox checkBoxB;
+    @BindView(R.id.checkC)
+    CheckBox checkBoxC;
+    @BindView(R.id.checkD)
+    CheckBox checkBoxD;
+    @BindView(R.id.radio)
+    LinearLayout radioQuestion;
+    @BindView(R.id.questionRadio)
+    TextView textRadio;
+    @BindView(R.id.radioA)
+    RadioButton radioA;
+    @BindView(R.id.radioB)
+    RadioButton radioB;
+    @BindView(R.id.radioC)
+    RadioButton radioC;
+    @BindView(R.id.radioD)
+    RadioButton radioD;
+    @BindView(R.id.editText)
+    LinearLayout editQuestion;
+    @BindView(R.id.questionEdit)
+    TextView textEdit;
+    @BindView(R.id.editAnswer)
+    EditText answerGiven;
+    @BindView(R.id.restart)
+    LinearLayout restart;
+
+    /**
+     * NOTE: I don't know if we can or not use butterKnife at this stage so in case we can't, here is the version without it, the rest is at the onCreate
+     * <p>
+     * variables related to views
+     * RelativeLayout intro;
+     * <p>
+     * LinearLayout buttonQuestion;
+     * TextView textButton;
+     * Button buttonA;
+     * Button buttonB;
+     * Button buttonC;
+     * Button buttonD;
+     * <p>
+     * LinearLayout checkQuestion;
+     * TextView textCheck;
+     * CheckBox checkBoxA;
+     * CheckBox checkBoxB;
+     * CheckBox checkBoxC;
+     * CheckBox checkBoxD;
+     * <p>
+     * LinearLayout radioQuestion;
+     * TextView textRadio;
+     * RadioButton radioA;
+     * RadioButton radioB;
+     * RadioButton radioC;
+     * RadioButton radioD;
+     * <p>
+     * LinearLayout editQuestion;
+     * TextView textEdit;
+     * EditText answerGiven;
+     * <p>
+     * LinearLayout restart;
+     **/
+
+    //variables to handle rotations
+    private static final String SCORE = "scoreAndQuestions";
+    private static final String CHECK_OPTIONS = "checkOptions";
+    private static final String RADIO_OPTION = "radioOption";
+    private static final String ANSWERS = "answers";
+
+    //holds the score, question number (questions only starts on 1 to be easier to code and to rotate)
     int[] score = {0, 1};
 
     //holds the answers given in the checkbox
-    Boolean[] checkBoxOptions = {false, false, false, false};
+    boolean[] checkBoxOptions = {false, false, false, false};
 
     //holds the answer given in the radio (forces a change to true on the selected)
     int radioOption;
 
-    //holds the answers given by the player (first one, answers[0], is ignored to make it easier to work with)
-    Boolean[] answers = {false, false, false, false, false, false, false, false, false};
+    //holds the answers given by the player (first position, answers[0], is ignored to make it easier to work with overall)
+    boolean[] answers = new boolean[9];
+
+    //following two methods take care of variables when a rotation happens
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+
+        savedInstanceState.putIntArray(SCORE, score);
+        savedInstanceState.putBooleanArray(CHECK_OPTIONS, checkBoxOptions);
+        savedInstanceState.putInt(RADIO_OPTION, radioOption);
+        savedInstanceState.putBooleanArray(ANSWERS, answers);
+
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        score = savedInstanceState.getIntArray(SCORE);
+        checkBoxOptions = savedInstanceState.getBooleanArray(CHECK_OPTIONS);
+        radioOption = savedInstanceState.getInt(RADIO_OPTION);
+        answers = savedInstanceState.getBooleanArray(ANSWERS);
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //binding call to the views needed
+        ButterKnife.bind(this);
+
+        //Because we only need the intro screen once...
+        if (score[1] != 0) {
+            intro.setVisibility(View.GONE);
+            question();
+        }
+
+        /**
+         *all the calls to the views needed to make the app work
+         *intro = findViewById(R.id.intro);
+         *
+         *buttonQuestion = findViewById(R.id.button);
+         *textButton = findViewById(R.id.questionButton);
+         *
+         *buttonA = findViewById(R.id.buttonA);
+         *buttonB = findViewById(R.id.buttonB);
+         *buttonC = findViewById(R.id.buttonC);
+         *buttonD = findViewById(R.id.buttonD);
+         *
+         *checkQuestion = findViewById(R.id.checkbox);
+         *textCheck = findViewById(R.id.questionCheck);
+         *checkBoxA = findViewById(R.id.checkA);
+         *checkBoxB = findViewById(R.id.checkB);
+         *checkBoxC = findViewById(R.id.checkC);
+         *checkBoxD = findViewById(R.id.checkD);
+         *
+         * radioQuestion = findViewById(R.id.radio);
+         *textRadio = findViewById(R.id.questionRadio);
+         *radioA = findViewById(R.id.radioA);
+         *radioB = findViewById(R.id.radioB);
+         *radioC = findViewById(R.id.radioC);
+         *radioD = findViewById(R.id.radioD);
+         *
+         *editQuestion = findViewById(R.id.editText);
+         *textEdit = findViewById(R.id.questionEdit);
+         *answerGiven = findViewById(R.id.editAnswer);
+         *
+         *restart = findViewById(R.id.restart);
+         **/
+
     }
 
     //we're working with a single activity so let's make things easy by playing with setVisibility gone and visible
 
     //first method ("screen") is a small intro to the quiz
     public void agree(View view) {
-        RelativeLayout intro = this.findViewById(R.id.intro);
+
         intro.setVisibility(View.GONE);
 
         question();
+
     }
 
     //second method handles the questions, answers and their display
@@ -51,15 +208,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (score[1] == 1 || score[1] == 7) {
 
-            LinearLayout buttonQuestion = this.findViewById(R.id.button);
             buttonQuestion.setVisibility(View.VISIBLE);
-
-            TextView textButton = this.findViewById(R.id.questionButton);
-
-            Button buttonA = this.findViewById(R.id.buttonA);
-            Button buttonB = this.findViewById(R.id.buttonB);
-            Button buttonC = this.findViewById(R.id.buttonC);
-            Button buttonD = this.findViewById(R.id.buttonD);
 
             if (score[1] == 1) {
                 textButton.setText(getString(R.string.questionOne));
@@ -80,15 +229,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (score[1] == 2 || score[1] == 5) {
 
-            LinearLayout checkQuestion = this.findViewById(R.id.checkbox);
             checkQuestion.setVisibility(View.VISIBLE);
-
-            TextView textCheck = this.findViewById(R.id.questionCheck);
-
-            CheckBox checkBoxA = this.findViewById(R.id.checkA);
-            CheckBox checkBoxB = this.findViewById(R.id.checkB);
-            CheckBox checkBoxC = this.findViewById(R.id.checkC);
-            CheckBox checkBoxD = this.findViewById(R.id.checkD);
 
             if (score[1] == 2) {
                 textCheck.setText(getString(R.string.questionTwo));
@@ -107,16 +248,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (score[1] == 3 || score[1] == 6) {
-            LinearLayout radioQuestion = this.findViewById(R.id.radio);
+
             radioQuestion.setVisibility(View.VISIBLE);
-
-            TextView textRadio = this.findViewById(R.id.questionRadio);
-
-            RadioButton radioA = this.findViewById(R.id.radioA);
-            RadioButton radioB = this.findViewById(R.id.radioB);
-            RadioButton radioC = this.findViewById(R.id.radioC);
-            RadioButton radioD = this.findViewById(R.id.radioD);
-            RadioButton radioE = this.findViewById(R.id.radioE);
 
             if (score[1] == 3) {
 
@@ -125,7 +258,6 @@ public class MainActivity extends AppCompatActivity {
                 radioB.setText(getString(R.string.answer3_2));
                 radioC.setText(getString(R.string.answer3_3));
                 radioD.setText(getString(R.string.answer3_4));
-                radioE.setText(getString(R.string.answer3_5));
             }
             if (score[1] == 6) {
 
@@ -133,17 +265,14 @@ public class MainActivity extends AppCompatActivity {
                 radioA.setText(getString(R.string.answer6_1));
                 radioB.setText(getString(R.string.answer6_2));
                 radioC.setText(getString(R.string.answer6_3));
-                radioD.setText(getString(R.string.answer6_4));
-                radioE.setText(getString(R.string.answer6_5));//correct answer
+                radioD.setText(getString(R.string.answer6_4));//correct answer
 
             }
         }
 
         if (score[1] == 4 || score[1] == 8) {
-            LinearLayout editQuestion = this.findViewById(R.id.editText);
-            editQuestion.setVisibility(View.VISIBLE);
 
-            TextView textEdit = this.findViewById(R.id.questionEdit);
+            editQuestion.setVisibility(View.VISIBLE);
 
             if (score[1] == 4) {
                 textEdit.setText(getString(R.string.questionFour));
@@ -154,8 +283,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (score[1] == 9) {
-            LinearLayout editQuestion = this.findViewById(R.id.restart);
-            editQuestion.setVisibility(View.VISIBLE);
+
+            restart.setVisibility(View.VISIBLE);
 
             if (answers[1]) {
                 score[0]++;
@@ -248,13 +377,12 @@ public class MainActivity extends AppCompatActivity {
 
         score[1]++;
 
-        LinearLayout buttonQuestion = this.findViewById(R.id.button);
         buttonQuestion.setVisibility(View.GONE);
 
         question();
     }
 
-    //method to handle the checkbox questions
+    //method to check which checkboxes the player checked in the checkbox questions
     public void checkAnswer(View view) {
 
         boolean checked = ((CheckBox) view).isChecked();
@@ -292,12 +420,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //and this one is the follow up to see if the player got it right or not
-    //also takes care of hiding this "screen" after being used and jumps back to the question method
+    //it also takes care of hiding this "screen" after being used and jumps back to the question method
     public void checkSolution(View view) {
 
         if (score[1] == 2) {
-            Boolean[] solutionTwo = {true, false, false, false};
-            if (Arrays.deepEquals(checkBoxOptions, solutionTwo)) {
+            boolean[] solutionTwo = {true, false, false, false};
+            if (checkBoxOptions == solutionTwo) {
                 answers[2] = true;
             } else {
                 answers[2] = false;
@@ -305,8 +433,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (score[1] == 5) {
-            Boolean[] solutionFive = {true, true, false, false};
-            if (Arrays.deepEquals(checkBoxOptions, solutionFive)) {
+            boolean[] solutionFive = {true, true, false, false};
+            if (checkBoxOptions == solutionFive) {
                 answers[5] = true;
             } else {
                 answers[5] = false;
@@ -315,24 +443,17 @@ public class MainActivity extends AppCompatActivity {
 
         score[1]++;
 
-        CheckBox checkA = this.findViewById(R.id.checkA);
-        CheckBox checkB = this.findViewById(R.id.checkB);
-        CheckBox checkC = this.findViewById(R.id.checkC);
-        CheckBox checkD = this.findViewById(R.id.checkD);
-        checkA.setChecked(false);
-        checkB.setChecked(false);
-        checkC.setChecked(false);
-        checkD.setChecked(false);
+        checkBoxA.setChecked(false);
+        checkBoxB.setChecked(false);
+        checkBoxC.setChecked(false);
+        checkBoxD.setChecked(false);
 
-        LinearLayout checkQuestion = this.findViewById(R.id.checkbox);
         checkQuestion.setVisibility(View.GONE);
 
         question();
     }
 
-    /**
-     * Falta tratar do resto das descrições
-     **/
+    //method that checks the answer selected by the player in a radioGroup question
     public void radioAnswer(View view) {
 
         boolean checked = ((RadioButton) view).isChecked();
@@ -358,15 +479,12 @@ public class MainActivity extends AppCompatActivity {
                     radioOption = 4;
                 }
                 break;
-            case R.id.radioE:
-                if (checked) {
-                    radioOption = 5;
-                }
-                break;
         }
 
     }
 
+    //and this is the follow up to check if the player selected or not the right one
+    //it also takes care of hiding this "screen" after being used and jumps back to the question method
     public void radioSolution(View view) {
 
         if (score[1] == 3) {
@@ -378,7 +496,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (score[1] == 6) {
-            if (radioOption == 5) {
+            if (radioOption == 4) {
                 answers[6] = true;
             } else {
                 answers[6] = false;
@@ -387,27 +505,20 @@ public class MainActivity extends AppCompatActivity {
 
         score[1]++;
 
-        RadioButton radioA = this.findViewById(R.id.radioA);
-        RadioButton radioB = this.findViewById(R.id.radioB);
-        RadioButton radioC = this.findViewById(R.id.radioC);
-        RadioButton radioD = this.findViewById(R.id.radioD);
-        RadioButton radioE = this.findViewById(R.id.radioE);
-
         radioA.setChecked(false);
         radioB.setChecked(false);
         radioC.setChecked(false);
         radioD.setChecked(false);
-        radioE.setChecked(false);
 
-        LinearLayout radioQuestion = this.findViewById(R.id.radio);
         radioQuestion.setVisibility(View.GONE);
 
         question();
     }
 
+    //method that checks if the editText questions got the right answer
+    //it also takes care of hiding this "screen" after the answer is submited
     public void editSolution(View view) {
 
-        EditText answerGiven = this.findViewById(R.id.editAnswer);
         String solutionEdit = answerGiven.getText().toString();
 
         if (score[1] == 4) {
@@ -429,12 +540,13 @@ public class MainActivity extends AppCompatActivity {
 
         answerGiven.setText("");
 
-        LinearLayout editQuestion = this.findViewById(R.id.editText);
         editQuestion.setVisibility(View.GONE);
 
         question();
     }
 
+    //method to restart our quiz
+    //we only need to care about one single variable since the rest is overwritten
     public void restart(View view) {
 
         score[0] = 0;
