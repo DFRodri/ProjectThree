@@ -234,9 +234,9 @@ public class MainActivity extends AppCompatActivity {
             if (score[1] == 2) {
                 textCheck.setText(getString(R.string.questionTwo));
                 checkBoxA.setText(getString(R.string.answer2_1));
-                checkBoxB.setText(getString(R.string.answer2_2));
+                checkBoxB.setText(getString(R.string.answer2_2));//correct answer
                 checkBoxC.setText(getString(R.string.answer2_3));//correct answer
-                checkBoxD.setText(getString(R.string.answer2_4));
+                checkBoxD.setText(getString(R.string.answer2_4));//correct answer
             }
             if (score[1] == 5) {
                 textCheck.setText(getString(R.string.questionFive));
