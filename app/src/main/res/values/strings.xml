@@ -28,10 +28,10 @@
     <string name="answer1_3">Spain</string>
     <string name="answer1_4">Madrid</string>
 
-    <string name="questionTwo">Which one is not the capital of Rwanda?</string>
+    <string name="questionTwo">Which cities aren't related to the capital of Rwanda?</string>
     <string name="answer2_1">Rwanda</string>
-    <string name="answer2_2">Xiptop</string>
-    <string name="answer2_3">Swaziman</string>
+    <string name="answer2_2">Porto</string>
+    <string name="answer2_3">Barcelona</string>
     <string name="answer2_4">Quebec</string>
 
     <string name="questionThree">Which one is the real name of the capital of China?</string>
