@@ -424,7 +424,7 @@ public class MainActivity extends AppCompatActivity {
     public void checkSolution(View view) {
 
         if (score[1] == 2) {
-            boolean[] solutionTwo = {true, false, false, false};
+            boolean[] solutionTwo = {false, true, true, true};
             if (checkBoxOptions == solutionTwo) {
                 answers[2] = true;
             } else {
